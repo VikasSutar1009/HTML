@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Storage Example</title>
+</head>
+<body>
+    <h2>Web Storage Example</h2>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="saveName">Save Name</button>
+    <button onclick="showName">Show Name</button>
+    <p id="displayName"></p>
+
+    <script>
+        // Save to Local Storage
+        function saveName() {
+            const name = document.getElementById("nameInput").value;
+            localStorage.setItem("userName", name);
+            sessionStorage.setItem("sessionName", name);  // save to sessionStorage
+            alert("Name saved!");
+        }
+
+        // Retrieve and show
+        function showName() {
+            const nameLocal = localStorage.getItem("userName");
+            const nameSession = sessionStorage.getItem("sessionName");
+            document.getElementById("displayName").innerText=
+            `LocalStorage: ${nameLocal || 'Empty'}, SessionStorage: ${nameSession || 'Empty'}`;
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Example</title>
+</head>
+<body>
+    <h2>Session API Example</h2>
+    <input type="text" id="sessionInput" placeholder="Enter session data">
+    <button onclick="setSession()">Set Session</button>
+    <button onclick="getSession()">Get Session</button>
+    <p id="sessionDisplay"></p>
+
+    <script>
+        function setSession() {
+            const data = document.getElementById("sessionInput").value;
+            sessionStorage.setItem("sessionData", data);
+            alert("Session data saved!");
+        }
+
+        function getSession() {
+            const data = sessionStorage.getItem("sessionData");
+            document.getElementById("sessionDisplay").innerText = data || "No session data";
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Maps API Example</title>
+    <style>
+        #map { height: 400px; width: 100%; }
+    </style>
+</head>
+<body>
+    <h2>Maps API Example</h2>
+    <div id="map"></div>
+
+    <!-- Replace YOUR_API_KEY with your Google Maps API key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script>
+        const map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 19.0760, lng: 72.8777 }, // Example: Mumbai
+            zoom: 12
+        });
+    </script>
+</body>
+</html>

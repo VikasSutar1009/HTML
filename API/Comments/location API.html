@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location API Example</title>
+</head>
+<body>
+    <h2>Location API Example</h2>
+    <button onclick="getLocation()">Get My Location</button>
+    <p id="locationDisplay"></p>
+
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    document.getElementById("locationDisplay").innerText =
+                        `Latitude: ${lat}, Longitude: ${lon}`;
+                });
+            } else {
+                alert("Location API not supported");
+            }
+        }
+    </script>
+</body>
+</html>

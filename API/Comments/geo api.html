@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo API Example</title>
+</head>
+<body>
+    <h2>Geo API Example</h2>
+    <button onclick="getGeo()">Get Geo Coordinate</button>
+    <p id="geoDisplay"></p>
+
+    <script>
+        function getGeo() {
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        const accuracy = position.coords.accuracy;
+                        document.getElementById("geoDisplay").innerText = 
+                        `Latitude: ${lat}, Longitude: ${lon} , Accuracy: ${accuracy} meters`;
+
+                    },
+                    (error) => {
+                        alert('Error: ' + error.message);
+                    }
+                );
+            } else{
+                alert("Geo API not supported");
+            }
+        }
+    </script>
+</body>
+</html>

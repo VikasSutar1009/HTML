@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies Example</title>
+</head>
+<body>
+    <h2>Cookies Example</h2>
+    <input type="text" id="cookieInput" placeholder="Enter your favourite color">
+    <button onclick="setCookie()">Set Cookie</button>
+    <button onclick="getCookie()">Get Cookie</button>
+    <p id="cookieDisplay"></p>
+
+    <script>
+        function setCookie() {
+            const color = document.getElementById("cookieInput").value;
+            document.cookie = "favColor= "+ color + ";path/;max-age=" + 60*60*24;   // 1 day
+            alert("Cookie set!");
+        }
+
+        function getCookie() {
+            const color = document.cookie.split(';');
+            let favColor = '';
+            cookies.forEach(cookie => {
+                const [key, value] = cookie.trim().split('=');
+                if (key === 'favColor') favColor = value;
+            });
+            document.getElementById("cookieDisplay").innerText = "Favourite Color: " + (favColor || "Not Set");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPS API Example</title>
+</head>
+<body>
+    <h2>GPS API Example (via Geolocation)</h2>
+    <button onclick="getGPS()">Get GPS Coordinates</button>
+    <p id="gpsDisplay"></p>
+
+    <script>
+        function getGPS() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        document.getElementById("gpsDisplay").innerText =
+                            `Latitude: ${lat}, Longitude: ${lon}`;
+                    },
+                    (error) => {
+                        alert('Error: ' + error.message);
+                    }
+                );
+            } else {
+                alert("Geolocation not supported in this browser");
+            }
+        }
+    </script>
+</body>
+</html>

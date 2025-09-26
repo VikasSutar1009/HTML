@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cache API Example</title>
+</head>
+<body>
+    <h2>Cache API Example</h2>
+    <button onclick="cacheFiles()">Cache Files</button>
+    <button onclick="showCache()">Show Cache Files</button>
+    <ul id="cacheList"></ul>
+
+    <script>
+        async function cacheFiles() {
+            if ('caches' in window){
+                const cache = await caches.open('my-cache');
+                await cache.addAll([
+                    '/index.html',
+                    '/style.css',
+                    '/script.js'
+                ]);
+                alert("Files cached!");
+            } else{
+                alert("Cache API not supported");
+            }
+        }
+
+        async function showCache() {
+            const cacheList = document.getElementById("cacheList");
+            cacheList.innerHTML= " ";
+            const cachenames = await caches.keys();
+            for(const name of cachenames){
+                const cache = await caches.open(name);
+                const requests = await caches.keys();
+                requests.forEach(req => {
+                    const li = document.createElement("li");
+                    li.textContent = req.url;
+                    cacheList.appendChild(li);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
