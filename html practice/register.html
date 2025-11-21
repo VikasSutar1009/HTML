@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registeration Form</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+
+        form {
+            max-width: 400px;
+            padding: 30px;
+            border: 2px solid #ccc;
+            border-radius: 12px;
+            background-color: aliceblue;
+            box-shadow: 0 4px 10px black;
+        }
+
+        .group-form {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: black;
+            font-weight: bold;
+        }
+
+        .group-form {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: darkcyan;
+            box-sizing: 0 4px 8px black;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <h2>Registeration Form</h2>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" placeholder="Enter Name"><br><br>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="Enter email"><br><br>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" placeholder="Enter password"><br><br>
+        </div>
+        <div>
+            <label for="birthdate">Date Of Birth:</label>
+            <input type="date" name="date" value="date"><br><br>
+        </div>
+        <div>
+            <label for="department">Departments</label>
+            <select name="department" id="department">
+                <option value="choise">choose department</option>
+                <option value="it">IT</option>
+                <option value="hr">HR</option>
+                <option value="finance">Finance</option>
+                <option value="sales">Sales</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit" class="submit-button" onclick="alert('Registration successful!')">Register</button> 
+        </div>
+        <div>
+            <p>Already have an account? <a href="/register.html">Login now</a></p>
+        </div>
+    </form>
+    <script>
+        function handleRegistration() {
+            // 1. Get the values from the form inputs
+            const name = document.getElementById('name').value.trim(); // .trim() removes extra spaces
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const birthdate = document.getElementById('birthdate').value;
+            const department = document.getElementById('department').value;
+
+            // 2. Perform Validation Checks
+            
+            // Check for empty fields
+            if (name === "" || email === "" || password === "" || birthdate === "" || department === "") {
+                alert("Please fill out all required fields.");
+                return; // Stop the function
+            }
+
+            // Check password length (example validation)
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return; // Stop the function
+            }
+            
+            // Check if department placeholder is selected
+            if (department === "choose department") {
+                 alert("Please select a valid Department.");
+                 return; // Stop the function
+            }
+
+            // 3. If validation passes, show success message and simulate submission
+            alert("✅ Registration Successful!\n\nDetails:\nName: " + name + "\nEmail: " + email + "\nDepartment: " + department + "\n\n(In a real scenario, this data would now be securely sent to the server.)");
+            
+            // Optional: Reset the form after successful submission
+            // document.getElementById('registrationForm').reset();
+        }
+    </script>
+</body>
+
+</html>

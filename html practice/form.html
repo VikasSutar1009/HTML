@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+
+        form {
+            max-width: 400px;
+            padding: 30px;
+            border: 2px solid #ccc;
+            border-radius: 12px;
+            background-color: aliceblue;
+            box-shadow: 0 4px 10px black;
+        }
+
+        .group-form {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: black;
+            font-weight: bold;
+        }
+
+        .group-form {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: darkcyan;
+            box-sizing: 0 4px 8px black;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <h2>Login Form</h2>
+        <div class="group-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter name."><br><br>
+        </div>
+        <div class="group-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="enter email."><br><br>
+        </div>
+        <div class="group-form">
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter password."><br><br>
+        </div>
+        <div class="group-form">
+            <label for="dropdown">Departments</label>
+            <select id="department" name="departmentSelected" required>
+                <option value="department">choose department</option>
+                <option value="it">IT</option>
+                <option value="HR">HR</option>
+                <option value="Finance">Finance</option>
+                <option value="sales">Sales</option>
+            </select><br><br>
+        </div>
+        <div>
+            <button type="submit" class="submit-button" onclick="alert('Login Successful!')">Submit</button>
+
+        </div>
+        <div>
+            <p>Dont have an account? <a href="/register.html">Signup now</a></p>
+        </div>
+    </form>
+   <script>
+        function validateAndSubmit() {
+            // 1. Get the values from the form inputs
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const department = document.getElementById('department').value;
+
+            // 2. Perform a very basic check (Simple Validation)
+            // Checks if the Name field is empty or if the default department placeholder is selected
+            if (name === "" || department === "") {
+                alert("Please fill out your Name and select a Department before submitting!");
+                return false; // Stop the function here
+            }
+
+            // 3. Simple feedback message (Alert)
+            alert("Login data collected!\nName: " + name + "\nEmail: " + email + "\nDepartment: " + department + "\n\n(In a real application, this data would now be sent to a server.)");
+            
+            // 4. (Optional) If you wanted to submit to the server after validation:
+            // document.getElementById('loginForm').submit();
+        }
+    </script>
+
+</body>
+
+</html>
