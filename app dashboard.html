@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping App Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f4f6f9;
+        }
+        .sidebar {
+            width: 250px;
+            min-height: 100vh;
+            background: #343a40;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: block;
+        }
+        .sidebar a:hover {
+            background: #495057;
+        }
+        .card {
+            border-radius: 15px;
+        }
+        .product-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="d-flex">
+
+    <!-- Sidebar -->
+    <div class="sidebar p-3">
+        <h4 class="text-white mb-4">ShopAdmin</h4>
+        <a href="#">Dashboard</a>
+        <a href="#">Products</a>
+        <a href="#">Orders</a>
+        <a href="#">Customers</a>
+        <a href="#">Reports</a>
+        <a href="#">Settings</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container-fluid p-4">
+
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Dashboard</h2>
+            <button class="btn btn-primary">+ Add Product</button>
+        </div>
+
+        <!-- Stats -->
+        <div class="row g-3">
+            <div class="col-md-3">
+                <div class="card p-3 text-center shadow-sm">
+                    <h5>Total Products</h5>
+                    <h2>120</h2>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card p-3 text-center shadow-sm">
+                    <h5>Total Orders</h5>
+                    <h2>340</h2>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card p-3 text-center shadow-sm">
+                    <h5>Total Customers</h5>
+                    <h2>98</h2>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card p-3 text-center shadow-sm">
+                    <h5>Revenue</h5>
+                    <h2>$25K</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Section -->
+        <h4 class="mt-4 mb-3">Top Selling Products</h4>
+        <div class="row g-3">
+
+            <div class="col-md-3">
+                <div class="card product-card shadow-sm p-2">
+                    <img src="running shoe.jpg" alt="">
+                    <h6 class="mt-2">Running Shoes</h6>
+                    <p class="text-muted m-0">$49 | Sold: 120</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card product-card shadow-sm p-2">
+                    <img src="smart watch.jpg" alt="">                    
+                    <h6 class="mt-2">Smart Watch</h6>
+                    <p class="text-muted m-0">$79 | Sold: 85</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card product-card shadow-sm p-2">
+                    <img src="headphone.jpg" alt="">
+                    <h6 class="mt-2">Headphones</h6>
+                    <p class="text-muted m-0">$39 | Sold: 150</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card product-card shadow-sm p-2">
+                    <img src="travel bag.jpg" alt="">
+                    <h6 class="mt-2">Travel Bag</h6>
+                    <p class="text-muted m-0">$59 | Sold: 60</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
